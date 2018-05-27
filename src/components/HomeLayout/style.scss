@@ -1,0 +1,89 @@
+$background: #ddd;
+
+.parallax {
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-perspective: 16px;
+	perspective: 16px;
+}
+
+.parallax_group {
+	position: relative;
+	height: 100%;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.parallax_layer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	
+	background: transparent;
+	background-position-x: 50%;
+	background-size: 40%;
+	background-repeat: no-repeat;
+	background-position-y: 333px;
+}
+
+.parallax_layer_base {
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	z-index: 7;
+}
+
+.parallax_background {
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.parallax_layer_bg {
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	z-index: 6;
+
+	background-image: url('/assets/solids-1.png');
+}
+
+.parallax_layer_bg2 {
+	-webkit-transform: translateZ(-1px) scale(1.0625);
+	transform: translateZ(-1px) scale(1.0625);
+	z-index: 5;
+
+	background-image: url('/assets/solids-2.png');
+}
+
+.parallax_layer_bg3 {
+	-webkit-transform: translateZ(-2px) scale(1.125);
+	transform: translateZ(-2px) scale(1.125);
+	z-index: 4;
+
+	background-image: url('/assets/solids-3.png');
+}
+
+.parallax_layer_bg4 {
+	-webkit-transform: translateZ(-3px) scale(1.185);
+	transform: translateZ(-3px) scale(1.185);
+	z-index: 3;
+
+	background-image: url('/assets/solids-4.png');
+}
+
+.parallax_layer_bg5 {
+	-webkit-transform: translateZ(-4px) scale(1.25);
+	transform: translateZ(-4px) scale(1.25);
+	z-index: 2;
+
+	background-image: url('/assets/solids-5.png');
+}
+
+// .parallax_layer_bg6 {
+// 	-webkit-transform: translateZ(-5px) scale(1.3125);
+// 	transform: translateZ(-5px) scale(1.3125);
+// 	z-index: 1;
+// }
+

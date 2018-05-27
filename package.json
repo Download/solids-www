@@ -1,0 +1,67 @@
+{
+  "private": true,
+  "name": "solids-www",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+    "build": "preact build --template src/index.html",
+    "serve": "npm run -s build && preact serve --template src/index.html",
+    "dev": "preact watch --template src/index.html",
+    "lint": "eslint src",
+    "test": "jest ./tests"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-synacor"
+  },
+  "eslintIgnore": [
+    "build/*"
+  ],
+  "devDependencies": {
+    "eslint": "^4.9.0",
+    "eslint-config-synacor": "^2.0.2",
+    "identity-obj-proxy": "^3.0.0",
+    "if-env": "^1.0.0",
+    "jest": "^21.2.1",
+    "node-sass": "^4.9.0",
+    "preact-cli": "^2.1.0",
+    "preact-render-spy": "^1.2.1",
+    "prettyjson": "^1.2.1",
+    "resolve-url-loader": "^2.3.0",
+    "sass-loader": "^7.0.1"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "preact": "^8.2.6",
+    "preact-compat": "^3.17.0",
+    "preact-context": "^0.1.1",
+    "preact-router": "^2.5.7",
+    "preact-solids": "0.0.1",
+    "solids": "0.0.3",
+    "ulog": "^1.1.0"
+  },
+  "jest": {
+    "verbose": true,
+    "setupFiles": [
+      "<rootDir>/src/tests/__mocks__/browserMocks.js"
+    ],
+    "testURL": "http://localhost:8080",
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/__mocks__/fileMock.js",
+      "\\.(css|less|scss)$": "identity-obj-proxy",
+      "^./style$": "identity-obj-proxy",
+      "^preact$": "<rootDir>/node_modules/preact/dist/preact.min.js",
+      "^react$": "preact-compat",
+      "^react-dom$": "preact-compat",
+      "^create-react-class$": "preact-compat/lib/create-react-class",
+      "^react-addons-css-transition-group$": "preact-css-transition-group"
+    }
+  }
+}

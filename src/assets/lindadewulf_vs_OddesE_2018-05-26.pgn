@@ -1,0 +1,13 @@
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2018.05.26"]
+[White "lindadewulf"]
+[Black "OddesE"]
+[WhiteElo "813"]
+[BlackElo "786"]
+[TimeControl "600"]
+[Termination "game_result.won_on_time"]
+[Result "0-1"]
+[CurrentPosition "8/7p/p7/8/P5k1/5p2/3pp1r1/3R3K w - - 0 60"]
+
+1.e4 c5 2.Bc4 Nc6 3.Nf3 Nf6 4.Ng5 e6 5.h3 a6 6.Nf3 b5 7.Bd3 Bb7 8.e5 Nd5 9.Be4 Nf4 10.d3 d5 11.Bxf4 dxe4 12.dxe4 Qxd1+ 13.Kxd1 Rd8+ 14.Ke2 Nd4+ 15.Nxd4 Rxd4 16.f3 b4 17.Be3 Rc4 18.b3 Rxc2+ 19.Bd2 Be7 20.a4 O-O 21.Kd3 Rb2 22.Rf1 Rd8+ 23.Ke3 Bg5+ 24.f4 Rxb3+ 25.Ke2 Bh4 26.Ra2 Bxe4 27.Be3 Bd3+ 28.Kf3 Bxf1 29.g3 Bxg3 30.Kxg3 Rxe3+ 31.Kg4 Bxh3+ 32.Kg5 Rg3+ 33.Kh4 Rf3 34.Nd2 Rxf4+ 35.Kxh3 Rd3+ 36.Kg2 Rg4+ 37.Kf2 f6 38.exf6 gxf6 39.Ke2 Rdd4 40.Ke3 Rg3+ 41.Nf3 e5 42.Kf2 Rgg4 43.Nxd4 cxd4 44.Kf3 Rf4+ 45.Kg3 f5 46.Rb2 Rg4+ 47.Kh3 d3 48.Kh2 Kf7 49.Kh3 Kg6 50.Kh2 Kg5 51.Kh3 f4 52.Kh2 e4 53.Kh3 Rg3+ 54.Kh2 Kg4 55.Rxb4 e3 56.Rb3 d2 57.Rb1 f3 58.Rd1 Rg2+ 59.Kh1 e2  0-1
