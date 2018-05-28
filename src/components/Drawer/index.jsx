@@ -21,7 +21,7 @@ export const Drawer = ({
 	// show a temporary drawer on small screens and a persistent drawer on large screens
 	// when using this setting, don't specify temporary/persistent/permanent as they will
 	// override this setting.
-	responsive = true, //(!temporary && !persistent && !permanent),
+	responsive = !temporary && !persistent && !permanent,
 
 	// title string or jsx element
 	title = '',
@@ -60,9 +60,9 @@ export const Drawer = ({
 		return (
 			<aside {...attributes}>
 				{!permanent && (responsive || persistent) ? <input type="checkbox" class={classes.drawer_toggle_persistent} id={`${id}_persistent`} /> : ''}
-				{!permanent && (responsive || persistent) ? <label for={`${id}_persistent`} class={classes.drawer_button_persistent}><span>{button ? button : <i class="material-icons">menu</i>}</span></label> : ''}
+				{!permanent && (responsive || persistent) ? <label for={`${id}_persistent`} class={classes.drawer_button_persistent}><span class={classes.appbar_icon}>{button ? button : <i class="material-icons">menu</i>}</span></label> : ''}
 				{!permanent && (responsive || temporary) ? <input type="checkbox" class={classes.drawer_toggle_temporary} id={`${id}_temporary`} /> : ''}
-				{!permanent && (responsive || temporary) ? <label for={`${id}_temporary`} class={classes.drawer_button_temporary}><span>{button ? button : <i class="material-icons">menu</i>}</span></label> : ''}
+				{!permanent && (responsive || temporary) ? <label for={`${id}_temporary`} class={classes.drawer_button_temporary}><span class={classes.appbar_icon}>{button ? button : <i class="material-icons">menu</i>}</span></label> : ''}
 				<nav>
 					<header><div>{title}</div></header>
 					<nav>{children}</nav>

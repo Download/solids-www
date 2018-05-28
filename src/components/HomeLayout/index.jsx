@@ -8,24 +8,26 @@ import style from './style.scss';
 
 
 export const HomeLayout = ({ title, children, mainClass, ...attributes }) => (
-	<Col {...attributes}>
+	<div class={style.solid_applayout} {...attributes}>
 		<AppBar title={title} reserveStart prominent fixed shrink>
 			<AppBarAction href="#" class="material-icons">file_download</AppBarAction>
 		</AppBar>
-		<Row fill>
-			<Drawer temporary>
-				<LeftNav />
-			</Drawer>
-			<main class={mainClass}>
-				{children[0]}
-				{children.slice(1)}
-			</main>
-			<Drawer permanent end />
-		</Row>
-	</Col>
+		<Drawer persistent>
+			<LeftNav />
+		</Drawer>
+		<Drawer permanent end />
+		<main class={mainClass}>
+			{children}
+		</main>
+	</div>
 );
 
+
 /*
+		<Row fill>
+		</Row>
+
+
 	<div class={style.parallax}>
 		<div class={style.parallax_group}>
 			<div class={classNames(style.parallax_layer, style.parallax_layer_base)}>
