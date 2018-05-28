@@ -22,6 +22,8 @@ export const Drawer = ({
 	// when using this setting, don't specify temporary/persistent/permanent as they will
 	// override this setting.
 	responsive = !temporary && !persistent && !permanent,
+	// show the persistent drawer as fixed under the appbar
+	fixed = false,
 
 	// title string or jsx element
 	title = '',
@@ -47,7 +49,8 @@ export const Drawer = ({
 			[classes.drawer_persistent]: persistent,
 			[classes.drawer_permanent]: permanent,
 			[classes.drawer_responsive]: responsive,
-			[classes.drawer_floating]: floating
+			[classes.drawer_floating]: floating,
+			[classes.drawer_fixed]: fixed
 		});
 
 		let id = `${classes.solid_drawer}_${(Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)).toString(36)}`;
@@ -63,11 +66,13 @@ export const Drawer = ({
 				{!permanent && (responsive || persistent) ? <label for={`${id}_persistent`} class={classes.drawer_button_persistent}><span class={classes.appbar_icon}>{button ? button : <i class="material-icons">menu</i>}</span></label> : ''}
 				{!permanent && (responsive || temporary) ? <input type="checkbox" class={classes.drawer_toggle_temporary} id={`${id}_temporary`} /> : ''}
 				{!permanent && (responsive || temporary) ? <label for={`${id}_temporary`} class={classes.drawer_button_temporary}><span class={classes.appbar_icon}>{button ? button : <i class="material-icons">menu</i>}</span></label> : ''}
-				<nav>
-					<header><div>{title}</div></header>
-					<nav>{children}</nav>
-					<footer>footer</footer>
-				</nav>
+				<div>
+					<nav>
+						<header><div>{title}</div></header>
+						<nav>{children}</nav>
+						<footer>footer</footer>
+					</nav>
+				</div>
 			</aside>
 		);
 	}}</Consumer>

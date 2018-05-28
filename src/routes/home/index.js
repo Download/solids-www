@@ -7,7 +7,7 @@ export const Home = () => (
 	<Provider value={{ classes: style }}>
 		<HomeLayout title="Solids" mainClass={style.home}>
 			<h1>Solids</h1>
-			<p><b>CSS-only Material Design Foundation</b></p>
+			<p><b>css-only material design primitives</b></p>
 			<p>CSS-only implementation of Google's <a href="https://material.io/guidelines/">Material Design</a> guidelines, 
 			heavily inspired by <a href="http://mildrenben.github.io/surface/">Surface</a>.</p>
 			<div class={style.picture_frame} />

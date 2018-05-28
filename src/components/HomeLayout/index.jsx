@@ -9,13 +9,13 @@ import style from './style.scss';
 
 export const HomeLayout = ({ title, children, mainClass, ...attributes }) => (
 	<div class={style.solid_applayout} {...attributes}>
-		<AppBar title={title} reserveStart prominent fixed shrink>
+		<AppBar title={title} reserveStart fixed>
 			<AppBarAction href="#" class="material-icons">file_download</AppBarAction>
 		</AppBar>
 		<Drawer persistent>
 			<LeftNav />
 		</Drawer>
-		<Drawer permanent end />
+		<Drawer persistent end />
 		<main class={mainClass}>
 			{children}
 		</main>
