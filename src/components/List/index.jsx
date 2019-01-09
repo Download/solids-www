@@ -4,10 +4,11 @@ import { createHelper } from '../style-classes';
 import { Consumer } from '../Theme';
 
 export const List = ({
-	Component = 'div',
+	interactive = false,
+	Component = interactive ? 'nav' : 'ul',
 	dense = false,
 	twoLines = false,
-	avatar = false,
+	avatars = false,
 	// list items
 	children,
 	// other attributes
@@ -20,11 +21,11 @@ export const List = ({
 		//		console.info('List', 'classes', classes);
 
 		let classNames = createHelper(classes, scope);
-		attributes.className = classNames(classes.solid_list, {
+		attributes.className = classNames(classes.list, {
 			[attributes.className || attributes.class]: attributes.className || attributes.class,
-			[classes.list_dense]: dense,
-			[classes.list_two_line]: twoLines,
-			[classes.list_avatar]: avatar
+			[classes.dense]: dense,
+			[classes.two_line]: twoLines,
+			[classes.avatars]: avatars
 		});
 
 		return (
@@ -38,10 +39,7 @@ export const List = ({
 
 export default List;
 
-export const Nav = (props) => List({ ...props, Component: 'nav' });
-export const Ul = (props) => List({ ...props, Component: 'ul' });
-
-export const ListGroup = ({
+export const Group = List.Group = ({
 	Component = 'div',
 	// list items
 	children,
@@ -53,7 +51,7 @@ export const ListGroup = ({
 
 		classes = { ...defaultClasses, ...classes };
 		let classNames = createHelper(classes, scope);
-		attributes.className = classNames(classes.list_group, {
+		attributes.className = classNames(classes.group, {
 			[attributes.className || attributes.class]: attributes.className || attributes.class,
 		});
 	
@@ -66,8 +64,8 @@ export const ListGroup = ({
 	}}</Consumer>
 );
 
-export const ListItem = ({
-	Component = 'a',
+export const Item = List.Item = ({
+	Component = 'li',
 	selected = false,
 	activated = false,
 	// material icon
@@ -82,15 +80,15 @@ export const ListItem = ({
 
 		classes = { ...defaultClasses, ...classes };
 		let classNames = createHelper(classes, scope);
-		attributes.className = classNames(classes.list_item, {
+		attributes.className = classNames(classes.item, {
 			[attributes.className || attributes.class]: attributes.className || attributes.class,
-			[classes.list_item_selected]: selected,
-			[classes.list_item_activated]: activated
+			[classes.selected]: selected,
+			[classes.activated]: activated
 		});
 	
 		return (
-			<Component {...attributes}>
-				{icon ? <i class={classNames(classes.list_item_graphic, 'material-icons')}>{icon}</i> : ''}
+			<Component role="option" {...attributes}>
+				{icon ? <i class={classNames(classes.graphic, 'material-icons')}>{icon}</i> : ''}
 				{children}
 			</Component>
 		);
@@ -99,7 +97,38 @@ export const ListItem = ({
 );
 
 
-export const ListDivider = ({
+export const LinkItem = List.LinkItem = (props) => Item({ Component: props.Component || 'a', ...props });
+
+export const ItemGraphic = List.ItemGraphic = ({
+	Component = 'span',
+	// list items
+	children,
+	// other attributes
+	...attributes
+}) => (
+
+	<Consumer>{({ classes = {}, scope = 'local'	}) => {
+
+		classes = { ...defaultClasses, ...classes };
+		let classNames = createHelper(classes, scope);
+		attributes.className = classNames({
+			[attributes.className || attributes.class]: attributes.className || attributes.class,
+		});
+		children = children;
+		return (
+			<Component {...attributes}>
+				{children && (children.length === 1) && (typeof children[0] === 'string') ? (
+					<i class="material-icons">{children}</i>
+				): (
+					children
+				)}
+			</Component>
+		);
+
+	}}</Consumer>
+);
+
+export const Divider = List.Divider = ({
 	Component = 'hr',
 	//
 	inset = false,
@@ -114,10 +143,10 @@ export const ListDivider = ({
 
 		classes = { ...defaultClasses, ...classes };
 		let classNames = createHelper(classes, scope);
-		attributes.className = classNames(classes.list_divider, {
+		attributes.className = classNames(classes.divider, {
 			[attributes.className || attributes.class]: attributes.className || attributes.class,
-			[classes.list_divider_inset]: inset,
-			[classes.list_divider_padded]: padded
+			[classes.inset]: inset,
+			[classes.padded]: padded
 		});
 	
 		return (

@@ -1,13 +1,16 @@
 import { h } from 'preact';
 
-import defaultClasses from 'solids/drawer/classes';
+import appbarClasses from 'solids/appbar/classes';
+import drawerClasses from 'solids/drawer/classes';
+
 import { createHelper } from '../style-classes';
 import { Consumer } from '../Theme';
 
+const defaultClasses = { ...appbarClasses, ...drawerClasses };
+
 export const Drawer = ({
 
-	// the following attributes are standard properties of material design drawers
-	// see https://material.io/guidelines/layout/structure.html#structure-side-nav
+	// https://material.io/guidelines/layout/structure.html#structure-side-nav
 	// -------
 
 	// show a temporary drawer overlaying the content when expanded, or just a button when collapsed
@@ -24,15 +27,18 @@ export const Drawer = ({
 	responsive = !temporary && !persistent && !permanent,
 	// show the persistent drawer as fixed under the appbar
 	fixed = false,
-
 	// title string or jsx element
 	title = '',
+	// footer string or jsx element
+	footer = '',
 	// navigation items to show in the drawer
 	children = undefined,
-	//
-	end = false,
-	//
-	button, // = (<i class="material-icons">menu</i>),
+	// start (left) drawer
+	start = true,
+	// end (right) drawer
+	end = !start,
+  // drawer button string or JSX element
+	button = (<i class="material-icons">menu</i>),
 	// other attributes
 	...attributes
 }) => (
@@ -43,36 +49,36 @@ export const Drawer = ({
 		console.info('Drawer', 'classes', classes);
 		
 		let classNames = createHelper(classes, scope);
-		attributes.className = classNames(classes.solid_drawer, {
-			[classes.drawer_end]: end,
-			[classes.drawer_temporary]: temporary,
-			[classes.drawer_persistent]: persistent,
-			[classes.drawer_permanent]: permanent,
-			[classes.drawer_responsive]: responsive,
-			[classes.drawer_floating]: floating,
-			[classes.drawer_fixed]: fixed
+		attributes.className = classNames(classes.drawer, {
+			[classes.start]: start,
+			[classes.end]: end,
+			[classes.temporary]: temporary,
+			[classes.persistent]: persistent,
+			[classes.permanent]: permanent,
+			[classes.responsive]: responsive,
+			[classes.floating]: floating,
+			[classes.fixed]: fixed
 		});
 
 		let id = `${classes.solid_drawer}_${(Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)).toString(36)}`;
 		// hack to bypass weird babel-loader error about unknown token
 		title = title;
+		footer = footer;
 		children = children;
 		button = button;
 		// /hack
 
 		return (
 			<aside {...attributes}>
-				{!permanent && (responsive || persistent) ? <input type="checkbox" class={classes.drawer_toggle_persistent} id={`${id}_persistent`} /> : ''}
-				{!permanent && (responsive || persistent) ? <label for={`${id}_persistent`} class={classes.drawer_button_persistent}><span class={classes.appbar_icon}>{button ? button : <i class="material-icons">menu</i>}</span></label> : ''}
-				{!permanent && (responsive || temporary) ? <input type="checkbox" class={classes.drawer_toggle_temporary} id={`${id}_temporary`} /> : ''}
-				{!permanent && (responsive || temporary) ? <label for={`${id}_temporary`} class={classes.drawer_button_temporary}><span class={classes.appbar_icon}>{button ? button : <i class="material-icons">menu</i>}</span></label> : ''}
-				<div>
+				<input type="checkbox" id={`${id}`} />
+				<label for={`${id}`}><a class={classes.icon + ' ' + classes.action}>{button ? button : <i class="material-icons">menu</i>}</a></label>
+				<div><div>
 					<nav>
-						<header><div>{title}</div></header>
-						<nav>{children}</nav>
-						<footer>footer</footer>
+						{title ? <header><div>{title}</div></header> : ''}
+						{children ? <nav>{children}</nav> : ''}
+						{footer ? <footer>{footer}</footer> : ''}
 					</nav>
-				</div>
+				</div></div>
 			</aside>
 		);
 	}}</Consumer>

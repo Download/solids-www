@@ -1,7 +1,8 @@
 import { h } from 'preact';
 import { Provider } from '../../components/Theme';
 import HomeLayout from '../../components/HomeLayout';
-import style from './style.scss';
+import style from '../../components/HomeLayout/style';
+import 'preact-material-components/List/style.css';
 
 export const Home = () => (
 	<Provider value={{ classes: style }}>

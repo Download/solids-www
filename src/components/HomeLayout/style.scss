@@ -1,4 +1,12 @@
-@import "solids/applayout";
+$mdc-theme-primary: #cc6801; // #f09abe;
+// $appbar-fill-color: white;
+
+@import "solids/solids";
+// @import 'solids/list';
+// @import 'solids/layout';
+@import 'solids/appbar';
+@import 'solids/drawer';
+
 
 
 /*
