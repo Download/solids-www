@@ -9,7 +9,7 @@ import style from './style.scss';
 
 export const HomeLayout = ({ title, children, mainClass, ...attributes }) => (
 	<div class={style.solids} {...attributes}>
-		<AppBar title={title} reserveStart reserveEnd dense prominent fixed>
+		<AppBar title={title} reserveStart reserveEnd prominent fixed shrink>
 			<AppBarAction class="material-icons">file_download</AppBarAction>
 		</AppBar>
 		<Drawer title="Title here">
