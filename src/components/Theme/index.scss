@@ -1,4 +1,4 @@
-$mdc-theme-primary: #6200ee !default; // baseline purple, 500 tone
+$mdc-theme-primary: #cc6801 !default; 
 $mdc-theme-on-primary: if(contrast-tone($mdc-theme-primary) == "dark", #000, #fff) !default;
 
 // The $mdc-theme-secondary* variables should be used for all new projects.
@@ -6,9 +6,9 @@ $mdc-theme-secondary: #018786 !default; // baseline teal, 600 tone
 // $mdc-theme-accent: $mdc-theme-secondary !default;
 $mdc-theme-on-secondary: if(contrast-tone($mdc-theme-secondary) == "dark", #000, #fff) !default;
 
-$mdc-theme-background: #fff !default; // White
+$mdc-theme-background: #eee !default; // Light gray
 
-$mdc-theme-surface: #fff !default;
+$mdc-theme-surface: #f8f8f8 !default; // Off-white
 $mdc-theme-on-surface: if(contrast-tone($mdc-theme-surface) == "dark", #000, #fff) !default;
 
 //
@@ -32,19 +32,3 @@ $mdc-theme-text-colors: (
   )
 ) !default;
 
-
-
-
-
-
-
-$primary: #6200ee !default;
-$secondary: #018786 !default;
-$background: white !default;
-$on_surface: black !default;
-$on_primary: white !default;
-$on_secondary: $on_primary !default;
-$font: Roboto, sans-serif !default;
-
-$page_bg: $background !default;
-$page_fg: $on_surface !default;

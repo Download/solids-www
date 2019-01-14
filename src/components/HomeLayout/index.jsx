@@ -1,26 +1,37 @@
 import classNames from 'classnames';
 import { h } from 'preact';
-import { Row, Col } from '../Layout';
-import AppBar, { AppBarAction } from '../AppBar';
-import Drawer from '../Drawer';
+import AppBar, { AppBarAction } from 'preact-solids/appbar';
+import Drawer from 'preact-solids/drawer';
 import LeftNav from '../LeftNav';
+import RightNav from '../RightNav';
+import Card from 'preact-solids/card';
 import style from './style.scss';
 
 
-export const HomeLayout = ({ title, children, mainClass, ...attributes }) => (
-	<div class={style.solids} {...attributes}>
-		<AppBar title={title} reserveStart reserveEnd prominent fixed shrink>
-			<AppBarAction class="material-icons">file_download</AppBarAction>
-		</AppBar>
-		<Drawer title="Title here">
-			<LeftNav />
-		</Drawer>
-		<Drawer end>Right Drawer</Drawer>
-		<main class={mainClass}>
-			{children}
-		</main>
-	</div>
-);
+export const HomeLayout = ({ title, children, className, mainClass, ...attributes }) => {
+	attributes.className = classNames(style.solids, {
+		[attributes.class || attributes.className]: attributes.class || attributes.className
+	})
+
+	return (
+		<div {...attributes}>
+			<AppBar title={title} reserveStart reserveEnd fixed tactile prominent shrink>
+				<AppBarAction class="material-icons">file_download</AppBarAction>
+			</AppBar>
+			<Drawer fixed title="Title here">
+				<LeftNav />
+			</Drawer>
+			<Drawer fixed end>
+				<RightNav />
+			</Drawer>
+			<main class={mainClass}>
+				<Card class={style.z1}>
+					<div class={style.content}>{children}</div>
+				</Card>
+			</main>
+		</div>
+	);
+}
 
 
 /*

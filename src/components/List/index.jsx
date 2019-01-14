@@ -111,7 +111,7 @@ export const ItemGraphic = List.ItemGraphic = ({
 
 		classes = { ...defaultClasses, ...classes };
 		let classNames = createHelper(classes, scope);
-		attributes.className = classNames({
+		attributes.className = classNames(classes.graphic, {
 			[attributes.className || attributes.class]: attributes.className || attributes.class,
 		});
 		children = children;

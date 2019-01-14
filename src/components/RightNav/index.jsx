@@ -1,16 +1,16 @@
 import { h } from 'preact';
 import { Link } from 'preact-router/match';
-import { createHelper } from 'preact-solids/style-classes';
-import { Consumer } from 'preact-solids/theme';
+import { createHelper } from '../style-classes';
+import { Consumer } from '../Theme';
 
 import defaultClasses from 'solids/list/classes';
 // import { ListGroup, Nav, ListItem, ListDivider } from '../../components/List';
-import List from 'preact-solids/list';
+// import List from '../List';
 // import Icon from 'preact-material-components/Icon';
-// import List from 'preact-material-components/List';
+import List from 'preact-material-components/List';
 
 
-export const LeftNav = ({ children, ...attributes }) => (
+export const RightNav = ({ children, ...attributes }) => (
 	<Consumer>{({	classes = {},	scope = 'local'	}) => {
 
 		classes = { ...defaultClasses, ...classes };
@@ -34,4 +34,4 @@ export const LeftNav = ({ children, ...attributes }) => (
 	}}</Consumer>
 );
 
-export default LeftNav;
+export default RightNav;

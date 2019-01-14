@@ -31,6 +31,8 @@ const AppBar = ({
 	reserveStart = false,
 	// reserve space for a toolbar button at the end
 	reserveEnd = false,
+	// should the appbar be 'tactile' (look like it has thickness)
+	tactile = false,
 	// other attributes
 	...attributes
 }) => (
@@ -48,7 +50,8 @@ const AppBar = ({
 			[classes.collapsed]: collapsed,
 			[classes.has_action]: hasAction,
 			[classes.shrink]: shrink,
-			[classes.floating]: floating
+			[classes.floating]: floating,
+			[classes.tactile]: tactile,
 		});
 
 		return (

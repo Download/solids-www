@@ -60,7 +60,8 @@ export const Drawer = ({
 			[classes.fixed]: fixed
 		});
 
-		let id = `${classes.solid_drawer}_${(Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)).toString(36)}`;
+		let id_temp = `${classes.drawer}_temporary_open_${(Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)).toString(36)}`;
+		let id_pers = `${classes.drawer}_persistent_collapsed_${(Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)).toString(36)}`;
 		// hack to bypass weird babel-loader error about unknown token
 		title = title;
 		footer = footer;
@@ -70,8 +71,10 @@ export const Drawer = ({
 
 		return (
 			<aside {...attributes}>
-				<input type="checkbox" id={`${id}`} />
-				<label for={`${id}`}><a class={classes.icon + ' ' + classes.action}>{button ? button : <i class="material-icons">menu</i>}</a></label>
+				<input type="checkbox" id={id_temp} class={classes.temporary} />
+				<label for={`${id_temp}`} ><a class={classes.icon + ' ' + classes.action}>{button}</a></label>
+				<input type="checkbox" id={id_pers} class={classes.persistent} />
+				<label for={`${id_pers}`}><a class={classes.icon + ' ' + classes.action}>{button}</a></label>
 				<div><div>
 					<nav>
 						{title ? <header><div>{title}</div></header> : ''}
