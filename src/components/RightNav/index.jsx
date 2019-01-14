@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import { Link } from 'preact-router/match';
-import { createHelper } from '../style-classes';
-import { Consumer } from '../Theme';
+import { createHelper } from 'preact-solids/style-classes';
+import { Consumer } from 'preact-solids/theme';
 
 import defaultClasses from 'solids/list/classes';
 // import { ListGroup, Nav, ListItem, ListDivider } from '../../components/List';

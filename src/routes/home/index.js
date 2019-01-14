@@ -1,5 +1,5 @@
 import { h } from 'preact';
-import { Provider } from '../../components/Theme';
+import { Provider } from 'preact-solids/theme';
 import HomeLayout from '../../components/HomeLayout';
 import style from '../../components/HomeLayout/style';
 import 'preact-material-components/List/style.css';

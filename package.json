@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "solids-www",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
@@ -37,7 +37,8 @@
     "preact-context": "^0.1.1",
     "preact-material-components": "^1.4.5",
     "preact-router": "^2.5.7",
-    "solids": "0.0.6",
+    "preact-solids": "^0.1.0",
+    "solids": "^0.1.0",
     "ulog": "^1.1.0"
   },
   "jest": {
